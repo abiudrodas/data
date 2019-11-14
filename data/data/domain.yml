@@ -1,0 +1,74 @@
+
+entities:
+- patienttype
+- name
+- email
+- date
+
+intents:
+- enter_data: {use_entities: false}
+- greet
+- goodbye
+- thanks
+- deny
+- name
+- book_appt
+- reschedule_appt
+- cancel_appt
+
+slots:
+  patient_type:
+    type: text                
+  new_patient:
+    type: bool
+  person_name:
+    type: text
+  email:
+    type: text
+  date:
+    type: text
+  entity_extractor:
+    type: categorical
+    values:
+      - ner_duckling_http
+
+actions:
+- utter_name
+- utter_thanks
+- utter_greet
+- utter_goodbye
+- utter_book_appt
+- utter_patient_type
+- action_store_patient_type
+- utter_ask_name
+- action_store_name
+- utter_ask_email
+- action_store_email
+- utter_date_time
+- action_store_date
+- action_book_appointment
+- utter_reschedule_appt
+- utter_cancel_appt
+
+templates:
+  utter_name:
+    - text: "Hey there!"
+  utter_greet:
+    - text: "Nice to you meet you How can I help?"
+  utter_goodbye:
+    - text: "Talk to you later!"
+  utter_thanks:
+    - text: "My pleasure."
+  utter_patient_type:
+    - text: "Are you a new patient, yes or no?"
+  utter_ask_name:
+    - text: "What's your first and last name?"
+  utter_ask_email:
+    - text: "Thanks and last step. Please reply back with just your primary email address
+            . We may send email reminders and communicate with you by email."
+  utter_date_time:
+    - text: "When did you like to book the appointment, Please say date and time in AM or PM format."
+  utter_reschedule_appt:
+    - text: "When did you like to reschedule the appointment, Please say date and time in AM or PM format."
+  utter_cancel_appt:
+    - text: "Canceled!!"
